@@ -10,14 +10,107 @@ class LandingPage extends StatefulWidget {
 class _LandingPageState extends State<LandingPage> {
   bool notificationTap = false;
 
+  showPin() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: SvgPicture.asset('assets/HotelSimplifyLogo.svg',
+              height: 100.0, width: 100.0),
+          content: Container(
+            height: 400,
+            width: 300,
+            child: ListView(
+              children: <Widget>[
+                TextField(
+                  decoration: InputDecoration(
+                    hintText: "Enter your PIN",
+                    hintStyle: TextStyle(
+                        fontWeight: FontWeight.w300, color: Colors.white30),
+                    alignLabelWithHint: true,
+                  ),
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white70),
+                ),
+                Container(
+                  padding: const EdgeInsets.all(35.0),
+                  child: Wrap(
+                    spacing: 25.0,
+                    runSpacing: 30.0,
+                    children: <Widget>[
+                      FloatingActionButton(
+                        child: Text('1'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('2'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('3'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('4'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('5'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('6'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('7'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('8'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('9'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Icon(Icons.arrow_back),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Text('0'),
+                        onPressed: () {},
+                      ),
+                      FloatingActionButton(
+                        child: Icon(Icons.arrow_forward),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+          ),
+          backgroundColor: Colors.purple[800],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Row(
           children: <Widget>[
-            SvgPicture.asset('assets/HotelSimplifyLogo.svg',
-                height: 100.0, width: 100.0),
+            InkWell(
+                child: SvgPicture.asset('assets/HotelSimplifyLogo.svg',
+                    height: 100.0, width: 100.0),
+                onTap: () {
+                  showPin();
+                }),
             SizedBox(
               width: 20.0,
             ),
@@ -67,7 +160,7 @@ class _LandingPageState extends State<LandingPage> {
           SizedBox(width: 20),
         ],
       ),
-      body: LandingPageBody(),
+      body: LandingPageBody(notificationTap),
     );
   }
 }

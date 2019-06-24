@@ -4,6 +4,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 //import './landingpage.dart';
 
 class LandingPageBody extends StatefulWidget{
+  final bool notificationTap;
+  LandingPageBody(this.notificationTap);
   @override
   createState() => _LandingPageBodyState();
   
@@ -23,8 +25,7 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                   decoration: BoxDecoration(
                     color: Colors.purple,
                   ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  child: ListView(                    
                     children: <Widget>[
                       Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
@@ -166,7 +167,11 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                           runSpacing: 30.0,
                           children: <Widget>[
                             _tableLongPress
-                                ? Card(
+                                ? InkWell(onDoubleTap: (){
+                                  setState(() {
+                                   _tableLongPress=false; 
+                                  });
+                                },child: Card(
                                     child: Container(                                      
                                       width: 150.0,
                                       child: Column(mainAxisAlignment: MainAxisAlignment.end,children: <Widget>[
@@ -182,7 +187,7 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                                       ],),
                                     ),
                                     elevation: 10,
-                                  )
+                                  ),)
                                 : InkWell(
                                     onLongPress: () {
                                       setState(() {
@@ -261,7 +266,7 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                     ],
                   ),
                 ),
-                //widget.notificationTap?
+                widget.notificationTap?
                  Positioned(
                         right: 0.0,
                         top: 0.0,
@@ -412,7 +417,7 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                           ),
                         ),
                       )
-                    //: Container(),
+                    : Container(),
               ],
             ),
           ),
