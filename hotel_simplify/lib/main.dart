@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:hotel_simplify/menu/costsection.dart';
+import 'package:hotel_simplify/menu/menusection.dart';
 import './landingpage/landingpage.dart';
+import './login/login.dart';
 
 void main() => runApp(MyApp());
 
@@ -14,14 +17,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Hotel Simplify',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.deepPurple,
       ),
-      home: LandingPage(),
-      // routes:<String, WidgetBuilder>{
-      //   '/':(BuildContext context) => LandingPage(),
-      //   //'/menus':(BuildContext context) => MenuPage(),
-      //   //'/login':(BuildContext context) => LoginPage(),
-      // }
+      home: Login(),
+      routes:<String, WidgetBuilder>{ 
+
+        '/menusection':(BuildContext context) => MenuSection(),
+        // '/login':(BuildContext context) => LoginPage(),
+        '/costsection':(BuildContext context) => CostSection(),
+        '/homepage':(BuildContext context)=>LandingPage(),
+        
+      }
     );
   }
 }

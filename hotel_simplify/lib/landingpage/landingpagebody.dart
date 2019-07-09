@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:responsive_container/responsive_container.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-//import './landingpage.dart';
 
 class LandingPageBody extends StatefulWidget{
   final bool notificationTap;
@@ -193,6 +192,9 @@ class _LandingPageBodyState extends State<LandingPageBody>{
                                       setState(() {
                                         _tableLongPress = true;
                                       });
+                                    },
+                                    onTap: (){
+                                      Navigator.of(context).pushNamed('/menusection');
                                     },
                                     child: Card(
                                       child: Container(
