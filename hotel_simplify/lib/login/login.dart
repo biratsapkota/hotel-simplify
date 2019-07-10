@@ -32,7 +32,7 @@ class _LoginState extends State<Login> {
               child: Container(
                 color: Colors.purple[900],
                 child: ListView(
-                  padding: const EdgeInsets.all(100),
+                  padding: const EdgeInsets.fromLTRB(60, 0, 50, 0),
                   children: <Widget>[
                     SvgPicture.asset(
                       'assets/HotelSimplifyLogo.svg',
@@ -63,114 +63,114 @@ class _LoginState extends State<Login> {
   }
 }
 
-Widget emailLogin(BuildContext context)=> Column(
-  children: <Widget>[
-    SizedBox(height: 30.0),
-    TextField(
-      style: TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-        hintText: "Enter your username",
-        hintStyle:
-            TextStyle(fontWeight: FontWeight.w300, color: Colors.white70),
-      ),
-      textAlign: TextAlign.center,
-    ),
-    SizedBox(height: 30.0),
-    TextField(
-      obscureText: true,
-      style: TextStyle(color: Colors.white),
-      decoration: InputDecoration(
-        hintText: "Enter your password",
-        hintStyle:
-            TextStyle(fontWeight: FontWeight.w300, color: Colors.white70),
-      ),
-      textAlign: TextAlign.center,
-    ),
-    SizedBox(height: 60.0),
-    RaisedButton(
-      child: Text(
-        'Login',
-        style: TextStyle(color: Colors.white),
-      ),
-      onPressed: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => LandingPage(),
+Widget emailLogin(BuildContext context) => Column(
+      children: <Widget>[
+        SizedBox(height: 30.0),
+        TextField(
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: "Enter your username",
+            hintStyle:
+                TextStyle(fontWeight: FontWeight.w300, color: Colors.white70),
           ),
-        );
-      },
-      color: Colors.blue,
-    ),
-  ],
-);
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 30.0),
+        TextField(
+          obscureText: true,
+          style: TextStyle(color: Colors.white),
+          decoration: InputDecoration(
+            hintText: "Enter your password",
+            hintStyle:
+                TextStyle(fontWeight: FontWeight.w300, color: Colors.white70),
+          ),
+          textAlign: TextAlign.center,
+        ),
+        SizedBox(height: 60.0),
+        RaisedButton(
+          child: Text(
+            'Login',
+            style: TextStyle(color: Colors.white),
+          ),
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => LandingPage(),
+              ),
+            );
+          },
+          color: Colors.blue,
+        ),
+      ],
+    );
 
 Widget pinLogin(BuildContext context) => Container(
-  padding: const EdgeInsets.all(35.0),
-  child: Wrap(
-    spacing: 25.0,
-    runSpacing: 30.0,
-    children: <Widget>[
-      ResponsiveContainer(
-          heightPercent: 5,
-          widthPercent: 100,
-          child: TextField(
-            style: TextStyle(color: Colors.white),
-            decoration: InputDecoration(
-              hintText: "Enter your Pin",
-              hintStyle:
-                  TextStyle(fontWeight: FontWeight.w300, color: Colors.white70),
-            ),
-            textAlign: TextAlign.center,
-          )),
-      FloatingActionButton(
-        child: Text('1'),
-        onPressed: () {},
+      padding: const EdgeInsets.all(35.0),
+      child: Wrap(
+        spacing: 15.0,
+        runSpacing: 20.0,
+        children: <Widget>[
+          ResponsiveContainer(
+              heightPercent: 5,
+              widthPercent: 100,
+              child: TextField(
+                style: TextStyle(color: Colors.white),
+                decoration: InputDecoration(
+                  hintText: "Enter your Pin",
+                  hintStyle: TextStyle(
+                      fontWeight: FontWeight.w300, color: Colors.white70),
+                ),
+                textAlign: TextAlign.center,
+              )),
+          FloatingActionButton(
+            child: Text('1'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('2'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('3'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('4'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('5'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('6'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('7'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('8'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('9'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.arrow_back),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Text('0'),
+            onPressed: () {},
+          ),
+          FloatingActionButton(
+            child: Icon(Icons.arrow_forward),
+            onPressed: () {},
+          ),
+        ],
       ),
-      FloatingActionButton(
-        child: Text('2'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('3'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('4'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('5'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('6'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('7'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('8'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('9'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Icon(Icons.arrow_back),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Text('0'),
-        onPressed: () {},
-      ),
-      FloatingActionButton(
-        child: Icon(Icons.arrow_forward),
-        onPressed: () {},
-      ),
-    ],
-  ),
-);
+    );

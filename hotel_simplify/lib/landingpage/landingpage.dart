@@ -34,10 +34,10 @@ class _LandingPageState extends State<LandingPage> {
                   style: TextStyle(color: Colors.white70),
                 ),
                 Container(
-                  padding: const EdgeInsets.all(35.0),
+                  padding: const EdgeInsets.fromLTRB(50.0, 10, 30, 0),
                   child: Wrap(
-                    spacing: 25.0,
-                    runSpacing: 30.0,
+                    spacing: 15.0,
+                    runSpacing: 10.0,
                     children: <Widget>[
                       FloatingActionButton(
                         child: Text('1'),
@@ -103,7 +103,9 @@ class _LandingPageState extends State<LandingPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: Container(),
+        leading: Container(
+          width: 0,
+        ),
         title: Row(
           children: <Widget>[
             InkWell(
