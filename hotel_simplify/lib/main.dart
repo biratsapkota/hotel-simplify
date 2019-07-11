@@ -4,6 +4,7 @@ import 'package:hotel_simplify/menu/costsection.dart';
 import 'package:hotel_simplify/menu/menusection.dart';
 import './landingpage/landingpage.dart';
 import './login/login.dart';
+import './bill/bill.dart';
 
 void main() => runApp(MyApp());
 
@@ -26,7 +27,7 @@ class MyApp extends StatelessWidget {
         // '/login':(BuildContext context) => LoginPage(),
         '/costsection':(BuildContext context) => CostSection(),
         '/homepage':(BuildContext context)=>LandingPage(),
-        
+        '/bill':(BuildContext context)=>Bill()
       }
     );
   }

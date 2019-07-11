@@ -12,6 +12,149 @@ class LandingPageBody extends StatefulWidget {
 class _LandingPageBodyState extends State<LandingPageBody> {
   bool _tableLongPress = false;
 
+  tableShiftDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          contentPadding: EdgeInsets.all(0.0),
+          content: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 10),
+                decoration: BoxDecoration(
+                    color: Colors.deepPurple[900],
+                    border: Border(
+                        left: BorderSide(
+                            color: Colors.yellow[700], width: 10.0))),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'Table Shift',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Icon(
+                      Icons.close,
+                      color: Colors.white,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 20, 20, 5),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('FROM: HT-9',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    Text('Bill No.',
+                        style: TextStyle(fontWeight: FontWeight.w500))
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 5, 20, 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('TimeStamp:6/5/2019,4:04:33 PM  ',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    Text('Waiter : Raju',
+                        style: TextStyle(fontWeight: FontWeight.w500))
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 10),
+                decoration: BoxDecoration(
+                  border: Border(
+                      bottom: BorderSide(color: Colors.black),
+                      top: BorderSide(color: Colors.black)),
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('To:      ',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    SizedBox(
+                      width: 10.0,
+                    ),
+                    Text('RoomType:   ',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    SizedBox(width: 10.0),
+                    Text('RoomName:     ',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    SizedBox(width: 10.0),
+                    Text('RoomNo:    ',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    SizedBox(width: 10.0),
+                    Text('Seat No.     ',
+                        style: TextStyle(fontWeight: FontWeight.w500))
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 10),
+                color: Colors.grey[300],
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(
+                      'S.N.',
+                      style: TextStyle(fontWeight: FontWeight.w500),
+                    ),
+                    Text('Items',
+                        style: TextStyle(fontWeight: FontWeight.w500)),
+                    Text('Quantity',
+                        style: TextStyle(fontWeight: FontWeight.w500))
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('1'),
+                    Text('Veg C. momo'),
+                    Text('3.0')
+                  ],
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.fromLTRB(20.0, 10, 20, 10),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text('2'),
+                    Text('Veg Jhol momo'),
+                    Text('2.0')
+                  ],
+                ),
+              )
+            ],
+          ),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            FlatButton(
+              child: Text(
+                "Shift Table",
+                style: TextStyle(color: Colors.white),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop(true);
+              },
+              color: Colors.yellow[700],
+            ),
+          ],
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -178,14 +321,30 @@ class _LandingPageBodyState extends State<LandingPageBody> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: <Widget>[
-                                          SizedBox(height: 15),
-                                          Text('Table Shift'),
                                           SizedBox(height: 25),
-                                          Text('Remove Merge'),
+                                          InkWell(
+                                            child: Text('Table Shift'),
+                                            onTap: () {
+                                              tableShiftDialog();
+                                            },
+                                          ),
                                           SizedBox(height: 25),
-                                          Text('Show Bill'),
+                                          InkWell(
+                                            child: Text('Remove Merge'),
+                                            onTap: () {},
+                                          ),
                                           SizedBox(height: 25),
-                                          Text('Shift Item'),
+                                          InkWell(
+                                            child: Text('Show Bill'),
+                                            onTap: () {
+                                              Navigator.of(context).pushNamed('/bill');
+                                            },
+                                          ),
+                                          SizedBox(height: 25),
+                                          InkWell(
+                                            child: Text('Shift Item'),
+                                            onTap: () {},
+                                          ),
                                           SizedBox(height: 15),
                                         ],
                                       ),
@@ -193,69 +352,8 @@ class _LandingPageBodyState extends State<LandingPageBody> {
                                     elevation: 10,
                                   ),
                                 )
-                              : InkWell(
-                                  onLongPress: () {
-                                    setState(() {
-                                      _tableLongPress = true;
-                                    });
-                                  },
-                                  onTap: () {
-                                    Navigator.of(context)
-                                        .pushNamed('/menusection');
-                                  },
-                                  child: Card(
-                                    child: Container(
-                                      width: 150.0,
-                                      child: Column(
-                                        children: <Widget>[
-                                          SizedBox(
-                                            height: 10.0,
-                                          ),
-                                          Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                            children: <Widget>[
-                                              SizedBox(width: 1.0),
-                                              Text('14:06'),
-                                              Text('22:03'),
-                                              SizedBox(width: 0.0)
-                                            ],
-                                          ),
-                                          SvgPicture.asset(
-                                              'assets/TableRed.svg',
-                                              height: 100.0,
-                                              width: 100.0),
-                                          Divider(
-                                            color: Colors.black,
-                                          ),
-                                          Text('LG - 2'),
-                                          SizedBox(height: 10.0)
-                                        ],
-                                      ),
-                                    ),
-                                    elevation: 10,
-                                  ),
-                                ),
-                          Card(
-                            child: Container(
-                              width: 150.0,
-                              child: Column(
-                                children: <Widget>[
-                                  SizedBox(
-                                    height: 26.0,
-                                  ),
-                                  SvgPicture.asset('assets/TableGreen.svg',
-                                      height: 100.0, width: 100.0),
-                                  Divider(
-                                    color: Colors.black,
-                                  ),
-                                  Text('LG - 2'),
-                                  SizedBox(height: 10.0)
-                                ],
-                              ),
-                            ),
-                            elevation: 10,
-                          ),
+                              : redTable(context),
+                          greenTable(context),
                         ],
                       ),
                     ],
@@ -426,4 +524,64 @@ class _LandingPageBodyState extends State<LandingPageBody> {
       ],
     );
   }
+
+  Widget redTable(BuildContext context) => InkWell(
+        onLongPress: () {
+          setState(() {
+            _tableLongPress = true;
+          });
+        },
+        onTap: () {
+          Navigator.of(context).pushNamed('/menusection');
+        },
+        child: Card(
+          child: Container(
+            width: 150.0,
+            child: Column(
+              children: <Widget>[
+                SizedBox(
+                  height: 10.0,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    SizedBox(width: 1.0),
+                    Text('14:06'),
+                    Text('22:03'),
+                    SizedBox(width: 0.0)
+                  ],
+                ),
+                SvgPicture.asset('assets/TableRed.svg',
+                    height: 100.0, width: 100.0),
+                Divider(
+                  color: Colors.black,
+                ),
+                Text('LG - 2'),
+                SizedBox(height: 10.0)
+              ],
+            ),
+          ),
+          elevation: 10,
+        ),
+      );
+  Widget greenTable(BuildContext context) => Card(
+        child: Container(
+          width: 150.0,
+          child: Column(
+            children: <Widget>[
+              SizedBox(
+                height: 26.0,
+              ),
+              SvgPicture.asset('assets/TableGreen.svg',
+                  height: 100.0, width: 100.0),
+              Divider(
+                color: Colors.black,
+              ),
+              Text('LG - 2'),
+              SizedBox(height: 10.0)
+            ],
+          ),
+        ),
+        elevation: 10,
+      );
 }
