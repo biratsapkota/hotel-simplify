@@ -26,7 +26,7 @@ class _MenuSectionState extends State<MenuSection> {
               width: 20.0,
             ),
             Text(
-              'Waiter Module',
+              'Menu',
               textScaleFactor: 1,
             ),
           ],
@@ -221,10 +221,7 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
                   textDirection: TextDirection.ltr,
                   children: [
                     TableRow(
-                        decoration: BoxDecoration(
-                            border: Border(
-                                bottom:
-                                    BorderSide(width: 1, color: Colors.black))),
+                        
                         children: [
                           Text('S.N.',
                               style: TextStyle(fontWeight: FontWeight.bold)),
@@ -235,10 +232,15 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
                           Text('Extra',
                               style: TextStyle(fontWeight: FontWeight.bold))
                         ]),
+                    tableDividerBold,
                     tableRow,
+                    tableDivider,
                     tableRow,
+                    tableDivider,
                     tableRow,
-                    tableRow
+                    tableDivider,
+                    tableRow,
+                    tableDivider
                   ],
                 ),
                 SizedBox(height: 50.0),
@@ -249,11 +251,7 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
                 ),
               ],
             ),
-          ),
-          ResponsiveContainer(
-            heightPercent: 5,
-            widthPercent: 100,
-          ),
+          ),          
           Align(
             alignment: Alignment.topCenter,
             child: Container(
@@ -288,8 +286,6 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
     );
 
 TableRow tableRow = TableRow(
-    decoration: BoxDecoration(
-        border: Border(bottom: BorderSide(width: 1, color: Colors.grey))),
     children: [
       Text('01'),
       Text('Chopsuey'),
@@ -304,3 +300,17 @@ TableRow tableRow = TableRow(
       ),
       Icon(Icons.restaurant_menu)
     ]);
+
+TableRow tableDivider = TableRow(children: [
+  Divider(),
+  Divider(),
+  Divider(),
+  Divider(),
+]);
+
+TableRow tableDividerBold = TableRow(children: [
+  Divider(color:Colors.black),
+  Divider(color:Colors.black),
+  Divider(color:Colors.black),
+  Divider(color:Colors.black),
+]);
