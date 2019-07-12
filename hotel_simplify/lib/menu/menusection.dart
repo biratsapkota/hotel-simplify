@@ -199,6 +199,24 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
                     Icon(Icons.add_circle, color: Colors.grey)
                   ],
                 ),
+                DefaultTabController(
+                  length: 3,
+                  child: Column(
+                    children: <Widget>[
+                      TabBar(
+                        indicatorColor: Colors.purple[900],
+                        labelColor: Colors.black,
+                        unselectedLabelColor: Colors.grey[400],
+                        tabs: <Widget>[
+                          Tab(child: Text('Ordered')),
+                          Tab(child: Text('In Progress')),
+                          Tab(child: Text('Completed')),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20.0),
                 Table(
                   textDirection: TextDirection.ltr,
                   children: [
@@ -233,7 +251,7 @@ Widget orderList(BuildContext context) => ResponsiveContainer(
             ),
           ),
           ResponsiveContainer(
-            heightPercent: 17.4,
+            heightPercent: 5,
             widthPercent: 100,
           ),
           Align(

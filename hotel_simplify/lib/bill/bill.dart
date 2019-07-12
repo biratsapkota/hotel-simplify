@@ -54,7 +54,8 @@ class Bill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text('2.'),
-              Text('Veg. Chowmein', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Veg. Chowmein',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
               Text('1', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('230.00', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('230.00', style: TextStyle(fontWeight: FontWeight.w500))
@@ -94,7 +95,8 @@ class Bill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text('4.'),
-              Text('Margherita Pizza', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Margherita Pizza',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
               Text('1', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('500.00', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('500.00', style: TextStyle(fontWeight: FontWeight.w500))
@@ -107,7 +109,8 @@ class Bill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(''),
-              Text('Onion Paste(E)', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Onion Paste(E)',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
               Text('1', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('30.00', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('30.00', style: TextStyle(fontWeight: FontWeight.w500))
@@ -119,8 +122,9 @@ class Bill extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Text('4.'),
-              Text('Margherita Pizza', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('5.'),
+              Text('Margherita Pizza',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
               Text('1', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('500.00', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('500.00', style: TextStyle(fontWeight: FontWeight.w500))
@@ -133,13 +137,18 @@ class Bill extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               Text(''),
-              Text('Onion Paste(E)', style: TextStyle(fontWeight: FontWeight.w500)),
+              Text('Onion Paste(E)',
+                  style: TextStyle(fontWeight: FontWeight.w500)),
               Text('1', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('30.00', style: TextStyle(fontWeight: FontWeight.w500)),
               Text('30.00', style: TextStyle(fontWeight: FontWeight.w500))
             ],
           ),
         ),
+        Divider(
+          color: Colors.black,
+        ),
+        billFooter(context),
       ],
     ));
   }
@@ -168,6 +177,126 @@ class Bill extends StatelessWidget {
                       style: TextStyle(color: Colors.white)),
                   Text('Waiter: "Superuser"',
                       style: TextStyle(color: Colors.white))
+                ],
+              ),
+            ),
+          ],
+        ),
+      );
+  Widget billFooter(BuildContext context) => Container(
+        padding: const EdgeInsets.all(30),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Text('Discount Method',
+                      style: TextStyle(
+                          fontSize: 27.0, fontWeight: FontWeight.bold)),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text('Discount Type'),
+                  Row(
+                    children: <Widget>[
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                              groupValue: 1,
+                              onChanged: (value) {},
+                              value: true),
+                          Text('   Flat')
+                        ],
+                      ),
+                      Row(
+                        children: <Widget>[
+                          Radio(
+                              groupValue: 1,
+                              onChanged: (value) {},
+                              value: true),
+                          Text('   Percentage')
+                        ],
+                      )
+                    ],
+                  ),
+                  Text('KOT (Rs 0.00)'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text('BAR (Rs 0.00)'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text('Bakery (Rs 0.00)'),
+                  SizedBox(
+                    height: 10.0,
+                  ),
+                  Text('Pizza (Rs 0.00)')
+                ],
+              ),
+            ),
+            Container(
+              child: Column(
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text('Sub Amount:     '),
+                          Divider(),
+                          Text('Discounted Amount:    '),
+                          Divider(),
+                          Text('Basic Amount:    '),
+                          Divider(
+                            color: Colors.black,
+                          ),
+                          Text('Service Charge(+10%):    '),
+                          Divider(),
+                          Text('VAT(+13%):    '),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text(
+                            'Total Amount:    ',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          )
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: <Widget>[
+                          Text('1780.00'),
+                          Divider(),
+                          Text('0.00'),
+                          Divider(),
+                          Text('1780.00'),
+                          Divider(),
+                          Text('178.00'),
+                          Divider(),
+                          Text('254.54'),
+                          SizedBox(
+                            height: 15,
+                          ),
+                          Text('2212.54',
+                              style: TextStyle(fontWeight: FontWeight.bold)),
+                        ],
+                      )
+                    ],
+                  ),
+                  SizedBox(
+                    height: 25.0,
+                  ),
+                  FlatButton(
+                    child: Text(
+                      'Pay Bill',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    onPressed: () {},
+                    color: Colors.yellow[700],
+                  )
                 ],
               ),
             ),
